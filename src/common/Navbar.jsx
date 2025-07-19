@@ -79,17 +79,13 @@ export default function Navbar() {
           </div>
           <div className=" flex justify-between gap-[40px] items-center pr-2">
             <img src={searchIcon} alt="" className="size-8" />
-            <img src={Ticket} alt="" className="size-8" /> 
+            <img src={Ticket} alt="" className="size-8" />
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
                 <MenuButton className="cursor-pointer relative flex text-sm">
-                  <img
-                    alt=""
-                    src={Profile}
-                    className="size-8"
-                  />
+                  <img alt="" src={Profile} className="size-8" />
                 </MenuButton>
               </div>
               <MenuItems
@@ -98,7 +94,7 @@ export default function Navbar() {
               >
                 <MenuItem>
                   <a
-                    href="#"
+                    href="/profile"
                     className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                   >
                     Your Profile

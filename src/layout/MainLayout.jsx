@@ -59,6 +59,7 @@ export default function MainLayout() {
 
     await addPostToProfile(payload);
 
+
     setIsModalOpen(false);
     setFile(null);
     setPreviewUrl(null);
@@ -69,7 +70,13 @@ export default function MainLayout() {
   return (
     <div className="layout relative">
       <Navbar />
-      <main className="main-content">
+      <main
+        className={
+          window.location.pathname === "/profile"
+            ? "main-content-profile"
+            : "main-content"
+        }
+      >
         <Outlet />
       </main>
 
