@@ -1,0 +1,17 @@
+{
+    "questions":[
+        {
+            "text":"string",
+            "is_req_open_ans": "bool",
+            "point":"Float",
+            "art_work_id":"int",
+            "answers":[
+                {
+                    "text":"string",
+                    "is_correct":"Bool",
+
+                }
+            ]
+        }
+    ]
+}
