@@ -107,7 +107,8 @@ export default function MainLayout() {
       <Navbar />
       <main
         className={
-          window.location.pathname === "/profile"
+          window.location.pathname === "/profile" ||
+          window.location.pathname === "/vote-arts"
             ? "main-content-profile"
             : "main-content"
         }

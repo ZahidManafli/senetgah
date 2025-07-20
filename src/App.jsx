@@ -9,7 +9,8 @@ import ProtectedRoute from "./common/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import { useAuth } from "./hooks/useAuth";
 import Profile from "./pages/Profile";
-
+import VoteArts from "./pages/VoteArts";
+import GalleryPicker from "./components/GalleryPicker";
 
 function AppRoutes() {
   const { user } = useAuth();
@@ -28,6 +29,8 @@ function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="museums" element={<Museuims />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="vote-arts" element={<VoteArts />} />
+        <Route path="gallery" element={<GalleryPicker />} />
       </Route>
 
       {/* Public Routes */}
