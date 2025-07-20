@@ -8,14 +8,13 @@ import Gazanfar from "../assets/gazanfar.png";
 import Maral from "../assets/maral.png";
 import Geysar from "../assets/geysar.png";
 
-import DigitalArt from '../assets/digital-art.png'
-import LogoArt from '../assets/logo-art.png'
-import Painting from '../assets/painting.png'
-import Caricature from '../assets/caricature.png'
-import Landscape from '../assets/landscape.jpg'
-import Portrait from '../assets/portrait.jpg'
-import Others from '../assets/other.png'
-
+import DigitalArt from "../assets/digital-art.png";
+import LogoArt from "../assets/logo-art.png";
+import Painting from "../assets/painting.png";
+import Caricature from "../assets/caricature.png";
+import Landscape from "../assets/landscape.jpg";
+import Portrait from "../assets/portrait.jpg";
+import Others from "../assets/other.png";
 
 const artists = [
   {
@@ -51,7 +50,12 @@ const artists = [
 export default function ArtStories() {
   return (
     <div className="py-10 w-full">
-      <h2 className="text-[38px] font-semibold mb-6">Art Stories</h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-[30px] font-semibold mb-6 baskervville-400">
+          Art Stories
+        </h2>
+        <p className="text-[20px] baskervville-400">that you find interesting.</p>
+      </div>
 
       <div className="flex flex-wrap justify-between items-center">
         {artists.map((artist, index) => (
@@ -61,7 +65,9 @@ export default function ArtStories() {
               alt={artist.name}
               className="w-[100px] h-[100px] object-cover rounded-full shadow-md"
             />
-            <p className="text-[18px] text-center mt-2">{artist.name}</p>
+            <p className="text-[18px] text-center mt-2 urbanist-400">
+              {artist.name}
+            </p>
           </div>
         ))}
       </div>

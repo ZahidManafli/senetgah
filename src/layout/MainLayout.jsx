@@ -3,7 +3,11 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../common/Navbar";
 import { generateImageDescription } from "../services/addWorkServices";
 import { addPostToProfile } from "../services/addWorkServices";
-import "./layout.css"
+import "./layout.css";
+import Footer from "../common/Footer";
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css'; // optional for styling
+
 
 export default function MainLayout() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +18,6 @@ export default function MainLayout() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [customCategory, setCustomCategory] = useState("");
-
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -45,26 +48,58 @@ export default function MainLayout() {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = async(e) => {
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const finalCategory = category === "Other" ? customCategory : category;
-    console.log({ title, description, finalCategory, file  });
 
-    const payload = {
-      "title": title,
-      "description": description,
-      "category": finalCategory,
-      "imageFile": file
+    if (!title || !description || !file || !finalCategory) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing fields",
+        text: "Please complete all fields before submitting.",
+      });
+      return;
     }
 
-    await addPostToProfile(payload);
+    const payload = {
+      title,
+      description,
+      category: finalCategory,
+      imageFile: file,
+    };
 
+    try {
+      setLoadingSubmit(true);
+      await addPostToProfile(payload);
 
-    setIsModalOpen(false);
-    setFile(null);
-    setPreviewUrl(null);
-    setTitle("");
-    setDescription("");
+      Swal.fire({
+        icon: "success",
+        title: "Upload Successful",
+        text: "Your work has been posted!",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      // Reset state
+      setIsModalOpen(false);
+      setFile(null);
+      setPreviewUrl(null);
+      setTitle("");
+      setDescription("");
+      setCustomCategory("");
+      setCategory("Digital Art");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops!",
+        text: "Something went wrong. Try again.",
+      });
+    } finally {
+      setLoadingSubmit(false);
+    }
   };
 
   return (
@@ -78,12 +113,13 @@ export default function MainLayout() {
         }
       >
         <Outlet />
+        <Footer />
       </main>
 
       {/* Floating Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="flex w-[60px] h-[60px] rounded-full text-[30px] justify-center items-center fixed bottom-3 right-5 bg-[#424F38] text-[#FBFAEE] z-50"
+        className="flex w-[60px] h-[60px] rounded-full text-[30px] justify-center items-center fixed bottom-10 right-5 bg-[#424F38] text-[#FBFAEE] z-50"
       >
         +
       </button>
@@ -211,10 +247,43 @@ export default function MainLayout() {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="bg-[#9A7614] hover:bg-[#b8911a] text-white  py-4 w-[30%] rounded-md"
+                disabled={loadingSubmit}
+                className={`py-4 w-[30%] rounded-md text-white flex justify-center items-center gap-2 
+    ${
+      loadingSubmit
+        ? "bg-gray-400 cursor-not-allowed"
+        : "bg-[#9A7614] hover:bg-[#b8911a]"
+    }`}
               >
-                Submit
+                {loadingSubmit ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 100 16v-4l-3.5 3.5L12 24v-4a8 8 0 01-8-8z"
+                      />
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit"
+                )}
               </button>
+
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}

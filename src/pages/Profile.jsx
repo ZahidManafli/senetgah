@@ -36,7 +36,7 @@ const Profile = () => {
       </div>
 
       {/* Name */}
-      <h1 className="mt-6 font-baskervville text-3xl md:text-4xl">
+      <h1 className="mt-6 font-baskervville text-3xl md:text-4xl baskervville-400">
         Zahid Manafli
       </h1>
 
@@ -44,33 +44,33 @@ const Profile = () => {
       <div className="flex flex-col md:flex-row flex-wrap gap-4 mt-4 items-center text-gray-700">
         <div className="flex items-center gap-2">
           <CameraIcon className="w-5 h-5" />
-          <span>@zahid.art</span>
+          <span className="urbanist-400">@zahid.art</span>
         </div>
         <div className="flex items-center gap-2">
           <AtSymbolIcon className="w-5 h-5" />
-          <span>zahidmanafli2018@gmail.com</span>
+          <span className="urbanist-400">zahidmanafli2018@gmail.com</span>
         </div>
         <div className="flex items-center gap-2">
           <PhoneIcon className="w-5 h-5" />
-          <span>(055) 647-63-93</span>
+          <span className="urbanist-400">(055) 647-63-93</span>
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mt-6 w-full max-w-xl">
         <div className="bg-[#EBE9D4] rounded-lg py-3 flex flex-col items-center justify-center">
-          <span className="text-2xl">12.5K</span>
-          <span className="text-sm font-light text-gray-600">Total likes</span>
+          <span className="urbanist-400 text-2xl">12.5K</span>
+          <span className="urbanist-400 text-sm font-light text-gray-600">Total likes</span>
         </div>
         <div className="bg-[#EBE9D4] rounded-lg py-3 flex flex-col items-center justify-center">
-          <span className="text-2xl">109</span>
-          <span className="text-sm font-light text-gray-600">
+          <span className="urbanist-400 text-2xl">109</span>
+          <span className="urbanist-400 text-sm font-light text-gray-600">
             Winned VoteFrame
           </span>
         </div>
         <div className="bg-[#EBE9D4] rounded-lg py-3 flex flex-col items-center justify-center">
-          <span className="text-2xl">247</span>
-          <span className="text-sm font-light text-gray-600">
+          <span className="urbanist-400 text-2xl">247</span>
+          <span className="urbanist-400 text-sm font-light text-gray-600">
             Joined VoteFrame
           </span>
         </div>
@@ -81,7 +81,7 @@ const Profile = () => {
         <div className="flex justify-between px-20  mb-6">
           <button
             onClick={() => setActiveTab("posts")}
-            className={`mr-6 pb-0 text-lg text-black font-light focus:outline-none ${
+            className={`mr-6 pb-0 text-lg text-black font-light focus:outline-none urbanist-400 ${
               activeTab === "posts"
                 ? "border-b-2 border-[#424F38] text-[#424F38]"
                 : "text-gray-600 hover:text-[#424F38]"
@@ -91,7 +91,7 @@ const Profile = () => {
           </button>
           <button
             disabled
-            className="pb-2 text-lg font-light text-gray-400 cursor-not-allowed flex items-center gap-2"
+            className="pb-2 text-lg font-light text-gray-400 cursor-not-allowed flex items-center gap-2 urbanist-400"
           >
             Collections
             <span className="text-xs italic">(coming&nbsp;soon)</span>

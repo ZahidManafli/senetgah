@@ -53,7 +53,7 @@ export default function Navbar() {
             <div className="flex shrink-0 gap-[6px] items-center">
               <img alt="Senetgah" src={logo} className="h-[60px] w-[60px]" />
               <h2 className="text-[#212121]  text-[28px] baskervville-400">
-                Senetgah
+                Sanatgah
               </h2>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Navbar() {
                     item.href == currentPath
                       ? "bg-[#424F38] text-[#FBFAEE]"
                       : "text-[#212121] hover:bg-[#424F38] hover:text-[#FBFAEE]",
-                    "flex items-center rounded-3xl px-5 py-2 text-[16px] font-medium"
+                    "flex items-center rounded-3xl px-5 py-2 text-[16px] font-medium urbanist-400"
                   )}
                   on
                 >

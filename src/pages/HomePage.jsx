@@ -21,7 +21,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen font-sans">
-      <h1 className="text-4xl font-semibold mb-6">Daily Art Dose</h1>
+      <h1 className="text-4xl font-semibold mb-6 baskervville-400">Daily Art Dose</h1>
 
       <div className="grid w-[100%] grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Art Card */}
@@ -32,8 +32,8 @@ export default function HomePage() {
             className="object-cover w-full h-[100%]"
           />
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-5 py-4 text-white">
-            <h2 className="text-xl font-baskervville">Sunflower Field</h2>
-            <p className="text-sm italic">Tahir Salahov</p>
+            <h2 className="text-xl font-baskervville baskervville-400">Sunflower Field</h2>
+            <p className="text-sm italic baskervville-400">Tahir Salahov</p>
           </div>
           <button className="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow">
             <ArrowUpRightIcon className="h-5 w-5 text-black" />
@@ -42,8 +42,8 @@ export default function HomePage() {
 
         {/* AI Overview */}
         <div className="h-[100%] col-span-4 bg-[#e9e7d6] p-5 rounded-xl shadow-md">
-          <h3 className="text-[28px] font-semibold mb-2">AI Overview</h3>
-          <p className="text-[16px] text-gray-800 font-baskervville">
+          <h3 className="text-[28px] font-semibold mb-2 urbanist-400">AI Overview</h3>
+          <p className="text-[16px] text-gray-800 font-baskervville urbanist-400">
             This painting by the famous Azerbaijani artist Tahir Salahov shows a
             bright field of sunflowers with tall, dark mountains in the
             background and power lines crossing the scene. Painted in an
